@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userName"
+            type="String" />
+
+        <variable
+            name="password"
+            type="String" />
+
+        <variable
+            name="loginViewModel"
+            type="com.rokin.wms.jectpackkotlin.mvvm.viewmodel.LoginViewModel" />
+
+        <variable
+            name="onLoginBtnClickHandlerEvent"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".mvvm.view.LoginActivity">
+
+        <com.rokin.wms.jectpackkotlin.view.HeadView
+            android:id="@+id/head_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_100"
+            android:src="@drawable/img_login_top" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_30">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/et_login_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_centerInParent="true"
+                    android:drawableLeft="@drawable/img_user"
+                    android:hint="请输入用户名"
+                    android:singleLine="true"
+                    android:text="@{userName}"
+                    android:textColorHint="@color/toast_background_color" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/et_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_60"
+                    android:layout_centerInParent="true"
+                    android:drawableLeft="@drawable/img_pwd"
+                    android:hint="请输入密码"
+                    android:singleLine="true"
+                    android:text="@{password}"
+                    android:textColorHint="@color/toast_background_color" />
+
+                <Switch
+                    android:id="@+id/sw_pwd_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="false" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="@dimen/dp_150"
+                    android:layout_height="@dimen/dp_50"
+                    android:background="@drawable/drawable_login_btn"
+                    android:gravity="center"
+                    android:onClick="@{onLoginBtnClickHandlerEvent}"
+                    android:text="@string/login"
+                    android:textColor="@color/login_btn_text_color"
+                    android:textSize="@dimen/sp_20" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/layout_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</layout>

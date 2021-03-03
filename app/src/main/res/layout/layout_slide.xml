@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="releaseAddress"
+            type="String" />
+
+        <variable
+            name="betaAddress"
+            type="String" />
+
+        <variable
+            name="uatAddress"
+            type="String" />
+
+        <variable
+            name="cusAddress"
+            type="String" />
+
+        <variable
+            name="loginViewModel"
+            type="com.rokin.wms.jectpackkotlin.mvvm.viewmodel.LoginViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.rokin.wms.jectpackkotlin.view.HeadView
+            android:id="@+id/hv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/lin1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_5"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp_4"
+                android:paddingRight="@dimen/dp_4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_3"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_3"
+                        android:layout_weight="1"
+                        android:text="正式版地址：" />
+
+                    <CheckBox
+                        android:id="@+id/museBox"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_weight="0.2" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/releaseAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{releaseAddress}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lin2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lin1"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_5"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp_4"
+                android:paddingRight="@dimen/dp_4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_3"
+                        android:layout_weight="1"
+                        android:text="测试版地址：" />
+
+                    <CheckBox
+                        android:id="@+id/betaBox"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_weight="0.2" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/betaAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{betaAddress}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lin4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lin2"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_5"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp_4"
+                android:paddingRight="@dimen/dp_4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_3"
+                        android:layout_weight="1"
+                        android:text="UAT版地址：" />
+
+                    <CheckBox
+                        android:id="@+id/uatBox"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_weight="0.2" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/uatAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{uatAddress}" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lin3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lin4"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_5"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp_4"
+                android:paddingRight="@dimen/dp_4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_3"
+                        android:layout_weight="1"
+                        android:text="自定义地址：" />
+
+
+                    <CheckBox
+                        android:id="@+id/cusBox"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_weight="0.2" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/cusAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{cusAddress}" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/confirm"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_50"
+                android:layout_below="@+id/lin3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/drawable_login_btn"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dp_20"
+                android:paddingRight="@dimen/dp_20"
+                android:text="确定" />
+
+            <TextView
+                android:id="@+id/upDateApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_5"
+                android:text="软件更新" />
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/lin3"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:paddingTop="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_5"
+                android:text="条码测试" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>
