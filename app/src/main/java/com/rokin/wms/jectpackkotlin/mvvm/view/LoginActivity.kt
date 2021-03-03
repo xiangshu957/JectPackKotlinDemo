@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.CompoundButton
@@ -40,7 +41,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         binding!!.etLoginPassword.transformationMethod =
             PasswordTransformationMethod.getInstance()
         //执行上面的代码后光标会处于输入框的最前方,所以把光标位置挪到文字的最后面
-        //执行上面的代码后光标会处于输入框的最前方,所以把光标位置挪到文字的最后面
         binding!!.etLoginPassword.setSelection(binding!!.etLoginPassword.text.toString().length)
         binding!!.headLogin.setDataImg(
             R.color.theme_color,
@@ -51,11 +51,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             R.drawable.ic_set,
             false,
             "",
-            onHeadCallBack
+            loginHeadCallback
         )
     }
 
-    private val onHeadCallBack = object : HeadCallback {
+    private val loginHeadCallback = object : HeadCallback {
         override fun onLeftBtnClickListener() {
 
         }
@@ -63,7 +63,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         @SuppressLint("InflateParams")
         override fun onRightBtnClickListener() {
             slidingMenu = SlidingMenu(context!!)
-            val inflate = layoutInflater.inflate(R.layout.layout_slide, null)
+            val inflate = LayoutInflater.from(context).inflate(R.layout.layout_slide, null)
             slidingMenu!!.menu = inflate
             slidingMenu!!.mode = SlidingMenu.RIGHT
             slidingMenu!!.touchModeAbove = SlidingMenu.TOUCHMODE_MARGIN
@@ -75,15 +75,42 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             initSlidingMenu()
             slidingMenu!!.showMenu()
 
-
         }
 
     }
 
-    private var slideBinding:LayoutSlideBinding?=null
+    private var slideBinding: LayoutSlideBinding? = null
     private fun initSlidingMenu() {
 
-        slideBinding = DataBindingUtil.setContentView(this,R.layout.layout_slide)
+        slideBinding = DataBindingUtil.setContentView(this, R.layout.layout_slide)
+        slideBinding!!.hvAddress.setDataImg(
+            R.color.theme_color,
+            "地址选择",
+            true,
+            R.drawable.img_back,
+            false,
+            0,
+            false,
+            "",
+            onHeadCallBack
+        )
+        slideBinding!!.setReleaseAddress(SpUtil[context!!, Constant.RELEASE, Constant.RELEASE_ADDRESS] as String?)
+        slideBinding!!.setBetaAddress(SpUtil[context!!, Constant.TEST, Constant.TEST_ADDRESS] as String?)
+        slideBinding!!.setUatAddress(SpUtil[context!!, Constant.UAT, Constant.UAT_ADDRESS] as String?)
+        slideBinding!!.setCusAddress(SpUtil[context!!, Constant.CUSTOM, Constant.CUSTOM_ADDRESS] as String?)
+
+    }
+
+    private val onHeadCallBack = object : HeadCallback {
+        override fun onLeftBtnClickListener() {
+            if (slideBinding != null && slidingMenu!!.isMenuShowing) {
+                slidingMenu!!.toggle()
+            }
+        }
+
+        override fun onRightBtnClickListener() {
+            slidingMenu!!.toggle()
+        }
 
     }
 

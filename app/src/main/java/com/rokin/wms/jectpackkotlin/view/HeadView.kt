@@ -1,5 +1,6 @@
 package com.rokin.wms.jectpackkotlin.view
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -169,14 +170,15 @@ class HeadView : FrameLayout, View.OnClickListener {
         headTvTitle!!.text = titleText
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     fun setDataImg(
         @DrawableRes drawableId: Int,
         titleText: String?,
-        leftImgVisibiliy: Boolean,
+        leftImgVisibility: Boolean,
         @DrawableRes leftImgId: Int,
-        rightImgVisibiliy: Boolean,
+        rightImgVisibility: Boolean,
         @DrawableRes rightImgId: Int,
-        rightTvVisibiliy: Boolean,
+        rightTvVisibility: Boolean,
         rightTvText: String?,
         headCallBack: HeadCallback?
     ) {
@@ -184,7 +186,7 @@ class HeadView : FrameLayout, View.OnClickListener {
         if (drawableId != 0) {
             headRl!!.background = resources.getDrawable(drawableId)
         }
-        if (leftImgVisibiliy) {
+        if (leftImgVisibility) {
             headImgLeft!!.visibility = View.VISIBLE
         } else {
             headImgLeft!!.visibility = View.INVISIBLE
@@ -193,7 +195,7 @@ class HeadView : FrameLayout, View.OnClickListener {
             headImgLeft!!.setImageResource(leftImgId)
         }
         headImgLeft!!.setOnClickListener(this)
-        if (rightImgVisibiliy) {
+        if (rightImgVisibility) {
             headImgRight!!.visibility = View.VISIBLE
         } else {
             headImgRight!!.visibility = View.INVISIBLE
@@ -201,7 +203,7 @@ class HeadView : FrameLayout, View.OnClickListener {
         if (rightImgId != 0) {
             headImgRight!!.setImageResource(rightImgId)
         }
-        if (rightTvVisibiliy) {
+        if (rightTvVisibility) {
             tvRight!!.visibility = View.VISIBLE
         } else {
             tvRight!!.visibility = View.INVISIBLE
@@ -211,16 +213,17 @@ class HeadView : FrameLayout, View.OnClickListener {
         headTvTitle!!.text = titleText
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     fun setDataImg(
         height: Int,
         @DimenRes dimenId: Int,
         @DrawableRes drawableId: Int,
         titleText: String?,
-        leftVisibiliy: Boolean,
+        leftVisibility: Boolean,
         @DrawableRes leftImgId: Int,
-        rightImgVisibiliy: Boolean,
+        rightImgVisibility: Boolean,
         @DrawableRes rightImgId: Int,
-        rightTvVisibiliy: Boolean,
+        rightTvVisibility: Boolean,
         @StringRes rightTvId: Int,
         headCallBack: HeadCallback?
     ) {
@@ -228,7 +231,7 @@ class HeadView : FrameLayout, View.OnClickListener {
         if (drawableId != 0) {
             headRl!!.background = resources.getDrawable(drawableId, null)
         }
-        if (leftVisibiliy) {
+        if (leftVisibility) {
             headImgLeft!!.visibility = View.VISIBLE
         } else {
             headImgLeft!!.visibility = View.INVISIBLE
@@ -237,7 +240,7 @@ class HeadView : FrameLayout, View.OnClickListener {
             headImgLeft!!.setImageResource(leftImgId)
         }
         headImgLeft!!.setOnClickListener(this)
-        if (rightImgVisibiliy) {
+        if (rightImgVisibility) {
             headImgRight!!.visibility = View.VISIBLE
         } else {
             headImgRight!!.visibility = View.INVISIBLE
@@ -245,7 +248,7 @@ class HeadView : FrameLayout, View.OnClickListener {
         if (rightImgId != 0) {
             headImgRight!!.setImageResource(rightImgId)
         }
-        if (rightTvVisibiliy) {
+        if (rightTvVisibility) {
             tvRight!!.visibility = View.VISIBLE
         } else {
             tvRight!!.visibility = View.INVISIBLE

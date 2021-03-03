@@ -18,7 +18,7 @@ object Constant {
     const val RELEASE_ADDRESS = "http://wms.rokin.cn:8011/"
     const val TEST_ADDRESS = "http://dev.rokin.cn:20005/"
     const val UAT_ADDRESS = "http://uat.rokin.cn:20005/"
-    const val CUSTOM_ADDRESS = "http://uat.rokin.cn:20005/"
+    const val CUSTOM_ADDRESS = ""
     const val TYPE_RECEIVE_RECEIVING_INVENTORY = "收货清点"
     const val TYPE_RECEIVE_ONSHELF_OPERATION = "上架操作"
     const val TYPE_RECEIVE_STORAGE_SCANNING = "入库扫描"
